@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Coaching Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            height: 60px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline;
+            margin-left: 10px;
+            font-size: 28px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .register-section {
+            text-align: center;
+            margin: 30px;
+        }
+        .register-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .register-form {
+            display: none;
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .register-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .register-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            margin: 20px;
+            font-size: 20px;
+            color: green;
+        }
+        .success-message a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Logo">
+        <h1>Our Coaching Center</h1>
+    </header>
+
+    <div class="gallery">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+    </div>
+
+    <div class="register-section">
+        <button id="registerBtn">Register</button>
+    </div>
+
+    <div class="register-form" id="registerForm">
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="text" id="phone" placeholder="Phone Number">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="address" placeholder="Address">
+        <button id="payBtn">Pay 1₹</button>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        Payment Successful!<br>
+        Join our WhatsApp Channel: <br>
+        <a href="https://whatsapp.com/channel/0029Vb7GJy4GOj9ofiBwB62Y" target="_blank">Click Here</a>
+    </div>
+
+    <script>
+        const registerBtn = document.getElementById('registerBtn');
+        const registerForm = document.getElementById('registerForm');
+        const payBtn = document.getElementById('payBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        registerBtn.addEventListener('click', () => {
+            registerForm.style.display = 'block';
+            window.scrollTo({ top: registerForm.offsetTop, behavior: 'smooth' });
+        });
+
+        payBtn.addEventListener('click', () => {
+            // Simple validation
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+
+            if (!name || !phone || !email || !address) {
+                alert('Please fill all fields!');
+                return;
+            }
+
+            // Demo Payment Success
+            registerForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            window.scrollTo({ top: successMessage.offsetTop, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
